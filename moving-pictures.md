@@ -90,8 +90,7 @@ learn about how to import sequence data in other formats, see the
 ```Shell
 qiime tools import \
   --type EMPSingleEndSequences \
-  --input-path
-emp-single-end-sequences \
+  --input-path emp-single-end-sequences \
   --output-path emp-single-end-sequences.qza
 ```
 
@@ -125,8 +124,7 @@ visualize these data using `qiime metadata tabulate`).
 qiime demux emp-single \
   --i-seqs emp-single-end-sequences.qza \
   --m-barcodes-file sample-metadata.tsv \
-  --m-barcodes-column
-barcode-sequence \
+  --m-barcodes-column barcode-sequence \
   --o-per-sample-sequences demux.qza \
   --o-error-correction-details demux-details.qza
 ```
@@ -226,11 +224,9 @@ qiime dada2 denoise-single \
   --i-demultiplexed-seqs demux.qza \
   --p-trim-left 0 \
   --p-trunc-len 120 \
-  --o-representative-sequences
-rep-seqs-dada2.qza \
+  --o-representative-sequences rep-seqs-dada2.qza \
   --o-table table-dada2.qza \
-  --o-denoising-stats
-stats-dada2.qza
+  --o-denoising-stats stats-dada2.qza
 ```
 
 ```Shell
@@ -262,8 +258,7 @@ described by [Bokulich et al.
 qiime quality-filter q-score \
   --i-demux demux.qza \
   --o-filtered-sequences demux-filtered.qza \
-  --o-filter-stats
-demux-filter-stats.qza
+  --o-filter-stats demux-filter-stats.qza
 ```
 
 >### Note
@@ -298,8 +293,7 @@ qiime deblur denoise-16S \
   --o-representative-sequences rep-seqs-deblur.qza \
   --o-table table-deblur.qza \
   --p-sample-stats \
-  --o-stats
-deblur-stats.qza
+  --o-stats deblur-stats.qza
 ```
 
 >### Note
@@ -343,13 +337,11 @@ features that are important in the data set.
 ```Shell
 qiime feature-table summarize \
   --i-table table.qza \
-  --o-visualization
-table.qzv \
-  --m-sample-metadata-file sample-metadata.tsv qiime
-feature-table tabulate-seqs \
+  --o-visualization table.qzv \
+  --m-sample-metadata-file sample-metadata.tsv
+qiime feature-table tabulate-seqs \
   --i-data rep-seqs.qza \
-  --o-visualization
-rep-seqs.qzv
+  --o-visualization rep-seqs.qzv
 ```
 
 Generate a tree for phylogenetic diversity analyses
@@ -382,8 +374,7 @@ qiime phylogeny align-to-tree-mafft-fasttree \
   --o-masked-alignment
 masked-aligned-rep-seqs.qza \
   --o-tree unrooted-tree.qza \
-  --o-rooted-tree
-rooted-tree.qza
+  --o-rooted-tree rooted-tree.qza
 ```
 
 Alpha and beta diversity analysis {#moving pics diversity}
@@ -448,8 +439,7 @@ qiime diversity core-metrics-phylogenetic \
   --i-phylogeny rooted-tree.qza \
   --i-table table.qza \
   --p-sampling-depth 1103 \
-  --m-metadata-file
-sample-metadata.tsv \
+  --m-metadata-file sample-metadata.tsv \
   --output-dir core-metrics-results
 ```
 
@@ -494,20 +484,14 @@ Diversity (a measure of community richness) and evenness metrics.
 
 ```Shell
 qiime diversity alpha-group-significance \
-  --i-alpha-diversity
-core-metrics-results/faith\_pd\_vector.qza \
-  --m-metadata-file
-sample-metadata.tsv \
-  --o-visualization
-core-metrics-results/faith-pd-group-significance.qzv
+  --i-alpha-diversity core-metrics-results/faith\_pd\_vector.qza \
+  --m-metadata-file sample-metadata.tsv \
+  --o-visualization core-metrics-results/faith-pd-group-significance.qzv
 
 qiime diversity alpha-group-significance \
-  --i-alpha-diversity
-core-metrics-results/evenness\_vector.qza \
-  --m-metadata-file
-sample-metadata.tsv \
-  --o-visualization
-core-metrics-results/evenness-group-significance.qzv
+  --i-alpha-diversity core-metrics-results/evenness\_vector.qza \
+  --m-metadata-file sample-metadata.tsv \
+  --o-visualization core-metrics-results/evenness-group-significance.qzv
 ```
 
 >### Question
@@ -548,21 +532,17 @@ using two sample metadata columns, as follows.
 
 ```Shell
 qiime diversity beta-group-significance \
-  --i-distance-matrix
-core-metrics-results/unweighted\_unifrac\_distance\_matrix.qza \
+  --i-distance-matrix core-metrics-results/unweighted\_unifrac\_distance\_matrix.qza \
   --m-metadata-file sample-metadata.tsv \
   --m-metadata-column body-site \
-  --o-visualization
-core-metrics-results/unweighted-unifrac-body-site-significance.qzv \
+  --o-visualization core-metrics-results/unweighted-unifrac-body-site-significance.qzv \
   --p-pairwise
-
+  
 qiime diversity beta-group-significance \
-  --i-distance-matrix
-core-metrics-results/unweighted\_unifrac\_distance\_matrix.qza \
+  --i-distance-matrix core-metrics-results/unweighted\_unifrac\_distance\_matrix.qza \
   --m-metadata-file sample-metadata.tsv \
   --m-metadata-column subject \
-  --o-visualization
-core-metrics-results/unweighted-unifrac-subject-group-significance.qzv \
+  --o-visualization core-metrics-results/unweighted-unifrac-subject-group-significance.qzv \
   --p-pairwise
 ```
 
@@ -595,22 +575,16 @@ explore how these samples changed over time.
 
 ```Shell
 qiime emperor plot \
-  --i-pcoa
-core-metrics-results/unweighted\_unifrac\_pcoa\_results.qza \
+  --i-pcoa core-metrics-results/unweighted\_unifrac\_pcoa\_results.qza \
   --m-metadata-file sample-metadata.tsv \
-  --p-custom-axes
-days-since-experiment-start \
-  --o-visualization
-core-metrics-results/unweighted-unifrac-emperor-days-since-experiment-start.qzv
+  --p-custom-axes days-since-experiment-start \
+  --o-visualization core-metrics-results/unweighted-unifrac-emperor-days-since-experiment-start.qzv
 
 qiime emperor plot \
-  --i-pcoa
-core-metrics-results/bray\_curtis\_pcoa\_results.qza \
-  --m-metadata-file
-sample-metadata.tsv \
+  --i-pcoa core-metrics-results/bray\_curtis\_pcoa\_results.qza \
+  --m-metadata-file sample-metadata.tsv \
   --p-custom-axes days-since-experiment-start \
-  --o-visualization
-core-metrics-results/bray-curtis-emperor-days-since-experiment-start.qzv
+  --o-visualization core-metrics-results/bray-curtis-emperor-days-since-experiment-start.qzv
 ```
 
 >### Question
@@ -643,11 +617,9 @@ metadata is provided with the `--m-metadata-file` parameter.
 ```Shell
 qiime diversity alpha-rarefaction \
   --i-table table.qza \
-  --i-phylogeny
-rooted-tree.qza \
+  --i-phylogeny rooted-tree.qza \
   --p-max-depth 4000 \
-  --m-metadata-file
-sample-metadata.tsv \
+  --m-metadata-file sample-metadata.tsv \
   --o-visualization alpha-rarefaction.qzv
 ```
 
@@ -737,15 +709,13 @@ which will be most relevant to their sequence data.
 
 ```Shell
 qiime feature-classifier classify-sklearn \
-  --i-classifier
-gg-13-8-99-515-806-nb-classifier.qza \
+  --i-classifier gg-13-8-99-515-806-nb-classifier.qza \
   --i-reads rep-seqs.qza \
   --o-classification taxonomy.qza
 
 qiime metadata tabulate \
   --m-input-file taxonomy.qza \
-  --o-visualization
-taxonomy.qzv
+  --o-visualization taxonomy.qzv
 ```
 
 >### Question
@@ -767,8 +737,7 @@ qiime taxa barplot \
   --i-table table.qza \
   --i-taxonomy taxonomy.qza \
   --m-metadata-file sample-metadata.tsv \
-  --o-visualization
-taxa-bar-plots.qzv
+  --o-visualization taxa-bar-plots.qzv
 ```
 
 >### Question
@@ -819,8 +788,7 @@ samples. (To learn more about filtering, see the
 qiime feature-table filter-samples \
   --i-table table.qza \
   --m-metadata-file sample-metadata.tsv \
-  --p-where
-\"\[body-site\]=\'gut\'\" \
+  --p-where \"\[body-site\]=\'gut\'\" \
   --o-filtered-table gut-table.qza
 ```
 
@@ -843,11 +811,9 @@ differ in abundance across the gut samples of the two subjects.
 ```Shell
 qiime composition ancom \
   --i-table comp-gut-table.qza \
-  --m-metadata-file
-sample-metadata.tsv \
+  --m-metadata-file sample-metadata.tsv \
   --m-metadata-column subject \
-  --o-visualization
-ancom-subject.qzv
+  --o-visualization ancom-subject.qzv
 ```
 
 >### Question
