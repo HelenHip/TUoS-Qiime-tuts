@@ -88,8 +88,11 @@ learn about how to import sequence data in other formats, see the
 `importing data tutorial <importing>`{.interpreted-text role="doc"}.
 
 ```Shell
-qiime tools import \--type EMPSingleEndSequences \--input-path
-emp-single-end-sequences \--output-path emp-single-end-sequences.qza
+qiime tools import \
+  --type EMPSingleEndSequences \
+  --input-path
+emp-single-end-sequences \
+  --output-path emp-single-end-sequences.qza
 ```
 
 >### Tip
@@ -119,10 +122,13 @@ correction details, and will not be explored in this tutorial (you can
 visualize these data using `qiime metadata tabulate`).
 
 ```Shell
-qiime demux emp-single \--i-seqs emp-single-end-sequences.qza
-\--m-barcodes-file sample-metadata.tsv \--m-barcodes-column
-barcode-sequence \--o-per-sample-sequences demux.qza
-\--o-error-correction-details demux-details.qza
+qiime demux emp-single \
+  --i-seqs emp-single-end-sequences.qza \
+  --m-barcodes-file sample-metadata.tsv \
+  --m-barcodes-column
+barcode-sequence \
+  --o-per-sample-sequences demux.qza \
+  --o-error-correction-details demux-details.qza
 ```
 
 After demultiplexing, it\'s useful to generate a summary of the
@@ -131,7 +137,9 @@ were obtained per sample, and also to get a summary of the distribution
 of sequence qualities at each position in your sequence data.
 
 ```Shell
-qiime demux summarize \--i-data demux.qza \--o-visualization demux.qzv
+qiime demux summarize \
+  --i-data demux.qza \
+  --o-visualization demux.qzv
 ```
 
 >### Note
@@ -214,15 +222,21 @@ we\'ll truncate our sequences at 120 bases. This next command may take
 up to 10 minutes to run, and is the slowest step in this tutorial.
 
 ```Shell
-qiime dada2 denoise-single \--i-demultiplexed-seqs demux.qza
-\--p-trim-left 0 \--p-trunc-len 120 \--o-representative-sequences
-rep-seqs-dada2.qza \--o-table table-dada2.qza \--o-denoising-stats
+qiime dada2 denoise-single \
+  --i-demultiplexed-seqs demux.qza \
+  --p-trim-left 0 \
+  --p-trunc-len 120 \
+  --o-representative-sequences
+rep-seqs-dada2.qza \
+  --o-table table-dada2.qza \
+  --o-denoising-stats
 stats-dada2.qza
 ```
 
 ```Shell
-qiime metadata tabulate \--m-input-file stats-dada2.qza
-\--o-visualization stats-dada2.qzv
+qiime metadata tabulate \
+  --m-input-file stats-dada2.qza \
+  --o-visualization stats-dada2.qzv
 ```
 
 If you\'d like to continue the tutorial using this FeatureTable (opposed
@@ -245,8 +259,10 @@ described by [Bokulich et al.
 (2013)](http://www.nature.com/nmeth/journal/v10/n1/abs/nmeth.2276.html).
 
 ```Shell
-qiime quality-filter q-score \--i-demux demux.qza
-\--o-filtered-sequences demux-filtered.qza \--o-filter-stats
+qiime quality-filter q-score \
+  --i-demux demux.qza \
+  --o-filtered-sequences demux-filtered.qza \
+  --o-filter-stats
 demux-filter-stats.qza
 ```
 
@@ -276,9 +292,13 @@ quality plots, we\'ll pass `--p-trim-length 120`. This next command may
 take up to 10 minutes to run.
 
 ```Shell
-qiime deblur denoise-16S \--i-demultiplexed-seqs demux-filtered.qza
-\--p-trim-length 120 \--o-representative-sequences rep-seqs-deblur.qza
-\--o-table table-deblur.qza \--p-sample-stats \--o-stats
+qiime deblur denoise-16S \
+  --i-demultiplexed-seqs demux-filtered.qza \
+  --p-trim-length 120 \
+  --o-representative-sequences rep-seqs-deblur.qza \
+  --o-table table-deblur.qza \
+  --p-sample-stats \
+  --o-stats
 deblur-stats.qza
 ```
 
@@ -290,9 +310,11 @@ visualize them using `qiime metadata tabulate` and
 
 
 ```Shell
-qiime metadata tabulate \--m-input-file demux-filter-stats.qza
-\--o-visualization demux-filter-stats.qzv qiime deblur visualize-stats
-\--i-deblur-stats deblur-stats.qza \--o-visualization deblur-stats.qzv
+qiime metadata tabulate \
+  --m-input-file demux-filter-stats.qza \
+  --o-visualization demux-filter-stats.qzv qiime deblur visualize-stats \
+  --i-deblur-stats deblur-stats.qza \
+  --o-visualization deblur-stats.qzv
 ```
 
 If you\'d like to continue the tutorial using this FeatureTable (opposed
@@ -319,9 +341,14 @@ useful later in the tutorial, when you want to learn more about specific
 features that are important in the data set.
 
 ```Shell
-qiime feature-table summarize \--i-table table.qza \--o-visualization
-table.qzv \--m-sample-metadata-file sample-metadata.tsv qiime
-feature-table tabulate-seqs \--i-data rep-seqs.qza \--o-visualization
+qiime feature-table summarize \
+  --i-table table.qza \
+  --o-visualization
+table.qzv \
+  --m-sample-metadata-file sample-metadata.tsv qiime
+feature-table tabulate-seqs \
+  --i-data rep-seqs.qza \
+  --o-visualization
 rep-seqs.qzv
 ```
 
@@ -349,9 +376,13 @@ section midpoint rooting is applied to place the root of the tree at the
 midpoint of the longest tip-to-tip distance in the unrooted tree.
 
 ```Shell
-qiime phylogeny align-to-tree-mafft-fasttree \--i-sequences rep-seqs.qza
-\--o-alignment aligned-rep-seqs.qza \--o-masked-alignment
-masked-aligned-rep-seqs.qza \--o-tree unrooted-tree.qza \--o-rooted-tree
+qiime phylogeny align-to-tree-mafft-fasttree \
+  --i-sequences rep-seqs.qza \
+  --o-alignment aligned-rep-seqs.qza \
+  --o-masked-alignment
+masked-aligned-rep-seqs.qza \
+  --o-tree unrooted-tree.qza \
+  --o-rooted-tree
 rooted-tree.qza
 ```
 
@@ -413,9 +444,13 @@ command?
 
 
 ```Shell
-qiime diversity core-metrics-phylogenetic \--i-phylogeny rooted-tree.qza
-\--i-table table.qza \--p-sampling-depth 1103 \--m-metadata-file
-sample-metadata.tsv \--output-dir core-metrics-results
+qiime diversity core-metrics-phylogenetic \
+  --i-phylogeny rooted-tree.qza \
+  --i-table table.qza \
+  --p-sampling-depth 1103 \
+  --m-metadata-file
+sample-metadata.tsv \
+  --output-dir core-metrics-results
 ```
 
 Here we set the `--p-sampling-depth` parameter to 1103. This value was
@@ -458,14 +493,20 @@ and alpha diversity data. We\'ll do that here for the Faith Phylogenetic
 Diversity (a measure of community richness) and evenness metrics.
 
 ```Shell
-qiime diversity alpha-group-significance \--i-alpha-diversity
-core-metrics-results/faith\_pd\_vector.qza \--m-metadata-file
-sample-metadata.tsv \--o-visualization
+qiime diversity alpha-group-significance \
+  --i-alpha-diversity
+core-metrics-results/faith\_pd\_vector.qza \
+  --m-metadata-file
+sample-metadata.tsv \
+  --o-visualization
 core-metrics-results/faith-pd-group-significance.qzv
 
-qiime diversity alpha-group-significance \--i-alpha-diversity
-core-metrics-results/evenness\_vector.qza \--m-metadata-file
-sample-metadata.tsv \--o-visualization
+qiime diversity alpha-group-significance \
+  --i-alpha-diversity
+core-metrics-results/evenness\_vector.qza \
+  --m-metadata-file
+sample-metadata.tsv \
+  --o-visualization
 core-metrics-results/evenness-group-significance.qzv
 ```
 
@@ -506,19 +547,23 @@ applicable. Here we\'ll apply this to our unweighted UniFrac distances,
 using two sample metadata columns, as follows.
 
 ```Shell
-qiime diversity beta-group-significance \--i-distance-matrix
-core-metrics-results/unweighted\_unifrac\_distance\_matrix.qza
-\--m-metadata-file sample-metadata.tsv \--m-metadata-column body-site
-\--o-visualization
-core-metrics-results/unweighted-unifrac-body-site-significance.qzv
-\--p-pairwise
+qiime diversity beta-group-significance \
+  --i-distance-matrix
+core-metrics-results/unweighted\_unifrac\_distance\_matrix.qza \
+  --m-metadata-file sample-metadata.tsv \
+  --m-metadata-column body-site \
+  --o-visualization
+core-metrics-results/unweighted-unifrac-body-site-significance.qzv \
+  --p-pairwise
 
-qiime diversity beta-group-significance \--i-distance-matrix
-core-metrics-results/unweighted\_unifrac\_distance\_matrix.qza
-\--m-metadata-file sample-metadata.tsv \--m-metadata-column subject
-\--o-visualization
-core-metrics-results/unweighted-unifrac-subject-group-significance.qzv
-\--p-pairwise
+qiime diversity beta-group-significance \
+  --i-distance-matrix
+core-metrics-results/unweighted\_unifrac\_distance\_matrix.qza \
+  --m-metadata-file sample-metadata.tsv \
+  --m-metadata-column subject \
+  --o-visualization
+core-metrics-results/unweighted-unifrac-subject-group-significance.qzv \
+  --p-pairwise
 ```
 
 >### Question
@@ -549,16 +594,22 @@ and days since the experiment start. We will use that last axis to
 explore how these samples changed over time.
 
 ```Shell
-qiime emperor plot \--i-pcoa
-core-metrics-results/unweighted\_unifrac\_pcoa\_results.qza
-\--m-metadata-file sample-metadata.tsv \--p-custom-axes
-days-since-experiment-start \--o-visualization
+qiime emperor plot \
+  --i-pcoa
+core-metrics-results/unweighted\_unifrac\_pcoa\_results.qza \
+  --m-metadata-file sample-metadata.tsv \
+  --p-custom-axes
+days-since-experiment-start \
+  --o-visualization
 core-metrics-results/unweighted-unifrac-emperor-days-since-experiment-start.qzv
 
-qiime emperor plot \--i-pcoa
-core-metrics-results/bray\_curtis\_pcoa\_results.qza \--m-metadata-file
-sample-metadata.tsv \--p-custom-axes days-since-experiment-start
-\--o-visualization
+qiime emperor plot \
+  --i-pcoa
+core-metrics-results/bray\_curtis\_pcoa\_results.qza \
+  --m-metadata-file
+sample-metadata.tsv \
+  --p-custom-axes days-since-experiment-start \
+  --o-visualization
 core-metrics-results/bray-curtis-emperor-days-since-experiment-start.qzv
 ```
 
@@ -590,9 +641,14 @@ be grouped based on metadata in the resulting visualization if sample
 metadata is provided with the `--m-metadata-file` parameter.
 
 ```Shell
-qiime diversity alpha-rarefaction \--i-table table.qza \--i-phylogeny
-rooted-tree.qza \--p-max-depth 4000 \--m-metadata-file
-sample-metadata.tsv \--o-visualization alpha-rarefaction.qzv
+qiime diversity alpha-rarefaction \
+  --i-table table.qza \
+  --i-phylogeny
+rooted-tree.qza \
+  --p-max-depth 4000 \
+  --m-metadata-file
+sample-metadata.tsv \
+  --o-visualization alpha-rarefaction.qzv
 ```
 
 The visualization will have two plots. The top plot is an alpha
@@ -680,11 +736,15 @@ which will be most relevant to their sequence data.
 >[https://data.qiime2.org/2020.2/common/gg-13-8-99-515-806-nb-classifier.qza](https://data.qiime2.org/2020.2/common/gg-13-8-99-515-806-nb-classifier.qza)
 
 ```Shell
-qiime feature-classifier classify-sklearn \--i-classifier
-gg-13-8-99-515-806-nb-classifier.qza \--i-reads rep-seqs.qza
-\--o-classification taxonomy.qza
+qiime feature-classifier classify-sklearn \
+  --i-classifier
+gg-13-8-99-515-806-nb-classifier.qza \
+  --i-reads rep-seqs.qza \
+  --o-classification taxonomy.qza
 
-qiime metadata tabulate \--m-input-file taxonomy.qza \--o-visualization
+qiime metadata tabulate \
+  --m-input-file taxonomy.qza \
+  --o-visualization
 taxonomy.qzv
 ```
 
@@ -703,8 +763,11 @@ interactive bar plots. Generate those plots with the following command
 and then open the visualization.
 
 ```Shell
-qiime taxa barplot \--i-table table.qza \--i-taxonomy taxonomy.qza
-\--m-metadata-file sample-metadata.tsv \--o-visualization
+qiime taxa barplot \
+  --i-table table.qza \
+  --i-taxonomy taxonomy.qza \
+  --m-metadata-file sample-metadata.tsv \
+  --o-visualization
 taxa-bar-plots.qzv
 ```
 
@@ -753,9 +816,12 @@ samples. (To learn more about filtering, see the
 `Filtering Data <filtering>`{.interpreted-text role="doc"} tutorial.)
 
 ```Shell
-qiime feature-table filter-samples \--i-table table.qza
-\--m-metadata-file sample-metadata.tsv \--p-where
-\"\[body-site\]=\'gut\'\" \--o-filtered-table gut-table.qza
+qiime feature-table filter-samples \
+  --i-table table.qza \
+  --m-metadata-file sample-metadata.tsv \
+  --p-where
+\"\[body-site\]=\'gut\'\" \
+  --o-filtered-table gut-table.qza
 ```
 
 ANCOM operates on a `FeatureTable[Composition]` QIIME 2 artifact, which
@@ -766,16 +832,21 @@ tolerate frequencies of zero. To build the composition artifact, a
 `FeatureTable[Composition]` artifact.
 
 ```Shell
-qiime composition add-pseudocount \--i-table gut-table.qza
-\--o-composition-table comp-gut-table.qza
+qiime composition add-pseudocount \
+  --i-table gut-table.qza \
+  --o-composition-table comp-gut-table.qza
 ```
 
 We can then run ANCOM on the `subject` column to determine what features
 differ in abundance across the gut samples of the two subjects.
 
 ```Shell
-qiime composition ancom \--i-table comp-gut-table.qza \--m-metadata-file
-sample-metadata.tsv \--m-metadata-column subject \--o-visualization
+qiime composition ancom \
+  --i-table comp-gut-table.qza \
+  --m-metadata-file
+sample-metadata.tsv \
+  --m-metadata-column subject \
+  --o-visualization
 ancom-subject.qzv
 ```
 
@@ -794,18 +865,24 @@ then re-run the above steps. In this tutorial, we collapse our feature
 table at the genus level (i.e. level 6 of the Greengenes taxonomy).
 
 ```Shell
-qiime taxa collapse \--i-table gut-table.qza \--i-taxonomy taxonomy.qza
-\--p-level 6 \--o-collapsed-table gut-table-l6.qza
+qiime taxa collapse \
+  --i-table gut-table.qza \
+  --i-taxonomy taxonomy.qza \
+  --p-level 6 \
+  --o-collapsed-table gut-table-l6.qza
 
-qiime composition add-pseudocount \--i-table gut-table-l6.qza
-\--o-composition-table comp-gut-table-l6.qza
+qiime composition add-pseudocount \
+  --i-table gut-table-l6.qza \
+  --o-composition-table comp-gut-table-l6.qza
 
-qiime composition ancom \--i-table comp-gut-table-l6.qza
-\--m-metadata-file sample-metadata.tsv \--m-metadata-column subject
-\--o-visualization l6-ancom-subject.qzv
+qiime composition ancom \
+  --i-table comp-gut-table-l6.qza \
+  --m-metadata-file sample-metadata.tsv \
+  --m-metadata-column subject \
+  --o-visualization l6-ancom-subject.qzv
 ```
 
 >### Question
->Which genera differ in abundance across subject? In which subject is
+Which genera differ in abundance across subject? In which subject is
 each genus more abundant?
 
