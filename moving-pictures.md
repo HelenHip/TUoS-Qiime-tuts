@@ -2,13 +2,13 @@
 ============================
 
 >### Note
-This guide assumes you have installed QIIME 2 using one of the
+>This guide assumes you have installed QIIME 2 using one of the
 procedures in the
 `install documents <../install/index>`{.interpreted-text role="doc"}.
 
 
 >### Note
-This guide uses QIIME 2-specific terminology, please see the
+>This guide uses QIIME 2-specific terminology, please see the
 `glossary <../glossary>`{.interpreted-text role="doc"} for more details.
 
 
