@@ -1,6 +1,8 @@
 \"Moving Pictures\" tutorial
 ============================
 
+![TUoS Logo](Images/ShefLogo.jpg)
+
 >### Note
 >This guide assumes you have installed QIIME 2 using one of the
 procedures in the
@@ -25,7 +27,8 @@ Before beginning this tutorial, create a new directory and change to
 that directory.
 
 ```Shell
-mkdir qiime2-moving-pictures-tutorial cd qiime2-moving-pictures-tutorial
+mkdir qiime2-moving-pictures-tutorial
+cd qiime2-moving-pictures-tutorial
 ```
 
 Sample metadata
