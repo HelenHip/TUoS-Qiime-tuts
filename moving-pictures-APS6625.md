@@ -360,66 +360,7 @@ qiime metadata tabulate \
   --o-visualization stats-dada2.qzv
 ```
 
-If you\'d like to continue the tutorial using this FeatureTable (opposed
-to the Deblur feature table generated in *Option 2*), run the following
-commands.
 
-```Shell
-mv rep-seqs-dada2.qza rep-seqs.qza mv table-dada2.qza table.qza
-```
-
-### Option 2: Deblur {#moving pictures deblur}
-
-[Deblur](http://msystems.asm.org/content/2/2/e00191-16) uses sequence
-error profiles to associate erroneous sequence reads with the true
-biological sequence from which they are derived, resulting in high
-quality sequence variant data. This is applied in two steps. First, an
-initial quality filtering process based on quality scores is applied.
-This method is an implementation of the quality filtering approach
-described by [Bokulich et al.
-(2013)](http://www.nature.com/nmeth/journal/v10/n1/abs/nmeth.2276.html).
-
-```Shell
-qiime quality-filter q-score \
-  --i-demux demux.qza \
-  --o-filtered-sequences demux-filtered.qza \
-  --o-filter-stats demux-filter-stats.qza
-```
-
->### Note
->In the [Deblur](http://msystems.asm.org/content/2/2/e00191-16) paper,
-the authors used different quality-filtering parameters than what [they
-currently recommend after additional
-analysis](https://qiita.ucsd.edu/static/doc/html/deblur_quality.html).
-The parameters used here are based on those more recent recommendations.
-
-
-Next, the Deblur workflow is applied using the
-`qiime deblur denoise-16S` method. This method requires one parameter
-that is used in quality filtering, `--p-trim-length n` which truncates
-the sequences at position `n`. In general, the Deblur developers
-recommend setting this value to a length where the median quality score
-begins to drop too low. On these data, the quality plots (prior to
-quality filtering) suggest a reasonable choice is in the 115 to 130
-sequence position range. This is a subjective assessment. One situation
-where you might deviate from that recommendation is when performing a
-meta-analysis across multiple sequencing runs. In this type of
-meta-analysis, it is critical that the read lengths be the same for all
-of the sequencing runs being compared to avoid introducing a
-study-specific bias. Since we already using a trim length of 120 for
-`qiime dada2 denoise-single`, and since 120 is reasonable given the
-quality plots, we\'ll pass `--p-trim-length 120`. This next command may
-take up to 10 minutes to run.
-
-```Shell
-qiime deblur denoise-16S \
-  --i-demultiplexed-seqs demux-filtered.qza \
-  --p-trim-length 120 \
-  --o-representative-sequences rep-seqs-deblur.qza \
-  --o-table table-deblur.qza \
-  --p-sample-stats \
-  --o-stats deblur-stats.qza
-```
 
 >### Note
 >The two commands used in this section generate QIIME 2 artifacts
@@ -434,14 +375,6 @@ qiime metadata tabulate \
   --o-visualization demux-filter-stats.qzv qiime deblur visualize-stats \
   --i-deblur-stats deblur-stats.qza \
   --o-visualization deblur-stats.qzv
-```
-
-If you\'d like to continue the tutorial using this FeatureTable (opposed
-to the DADA2 feature table generated in *Option 1*), run the following
-commands.
-
-```Shell
-mv rep-seqs-deblur.qza rep-seqs.qza mv table-deblur.qza table.qza
 ```
 
 FeatureTable and FeatureData summaries
