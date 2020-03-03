@@ -12,6 +12,7 @@
 >### Note
 >This guide uses QIIME 2-specific terminology, please see the [glossary](https://docs.qiime2.org/2020.2/glossary/) for more details.
 
+***
 
 In this tutorial you\'ll use QIIME 2 to perform an analysis of human
 microbiome samples from two individuals at four body sites at five
@@ -42,8 +43,10 @@ This node is just a gateway to the worker nodes. If you are on a worker node you
 ```
 [bo1nn@sharc-node004 ~]$
 ```
-#### Important note
 ***
+
+#### Important note
+
 This tutorial relies on having access to a number of programs. The easiest way is to have your account configured to use the Genomics Software Repository. If that is the case you should see the following message when you get an interactive session with ```qrsh```:
 ```
   Your account is set up to use the Genomics Software Repository
@@ -58,7 +61,6 @@ cat /usr/local/extras/Genomics/workshops/January2018/.nanorc >> /home/$USER/.nan
 ***
 
 #### Note on transferring output files to your local computer for visualization
-***
 You probably will want to transfer files to your own computer for visualization (especially the images). If you are working on a windows machine and using MobaXterm then the easiest option is to use the graphical sftp panel on the left, using the icons or dragging and dropping from your computer. 
 
 Another possibility is to email the files, for example:
@@ -118,7 +120,7 @@ some invalid data to try out with Keemei.
 use with QIIME 2, have a read of the [metadata tutorial](https://docs.qiime2.org/2020.2/tutorials/metadata/)
 
 
-Obtaining and importing data
+####Obtaining and importing data
 ----------------------------
 
 Download the sequence reads that we\'ll use in this analysis. In this
