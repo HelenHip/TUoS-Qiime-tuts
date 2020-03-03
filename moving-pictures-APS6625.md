@@ -281,7 +281,7 @@ qiime demux summarize \
   --o-visualization demux.qzv
 ```
 
-
+We now have a file called `demux.qzv`. All output files from QIIME 2 with the extension `.qzv` can be visualised using the QIIME view web page. Download `demux.qzv` to your computer
 
 
 
