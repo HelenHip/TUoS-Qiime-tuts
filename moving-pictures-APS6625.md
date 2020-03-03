@@ -116,7 +116,7 @@ some invalid data to try out with Keemei.
 
 >### Tip
 >To learn more about metadata, including how to format your metadata for
-use with QIIME 2, have a read of the [metadata tutorial](https://docs.qiime2.org/2020.2/tutorials/metadata/)
+use with QIIME 2, have a read of the [metadata tutorial](https://docs.qiime2.org/2020.2/tutorials/metadata/).
 
 We'll also need the sample metadata file in our working directory on ShARC. You can either upload it using the graphical sftp panel on the left of MobaXTerm, or download it directly onto the hpc using the command:
 ```Shell
@@ -141,7 +141,6 @@ wget -O "emp-single-end-sequences/barcodes.fastq.gz" "https://data.qiime2.org/20
 wget -O "emp-single-end-sequences/sequences.fastq.gz" "https://data.qiime2.org/2020.2/tutorials/moving-pictures/emp-single-end-sequences/sequences.fastq.gz"
 ```
 
-
 All data that is used as input to QIIME 2 is in form of QIIME 2
 artifacts, which contain information about the type of data and the
 source of the data. So, the first thing we need to do is import these
@@ -153,7 +152,16 @@ multiplexed, meaning that the sequences have not yet been assigned to
 samples (hence the inclusion of both `sequences.fastq.gz` and
 `barcodes.fastq.gz` files, where the `barcodes.fastq.gz` contains the
 barcode read associated with each sequence in `sequences.fastq.gz`.) To
-learn about how to import sequence data in other formats, see the [importing data tutorial[(https://docs.qiime2.org/2020.2/tutorials/importing/).
+learn about how to import sequence data in other formats, see the [importing data tutorial](https://docs.qiime2.org/2020.2/tutorials/importing/).
+
+##### Running QIIME 2 on ShARC
+
+We will submit jobs to the cluster using `qsub` and scriptfiles. Copy the scriptfiles for this tutorial from the workshops folder
+
+```Shell
+cp /usr/local/extras/Genomics/wokshops/qiime .
+```
+
 
 ```Shell
 qiime tools import \
