@@ -363,7 +363,7 @@ This command is in the script file `tabulate.sh`. You can edit this with your em
 #$ -N tabulate
 ##$ -M name@sheffield.ac.uk
 
-# Insert your email address above to receive job notifications
+# Insert your email address above if you want to receive job notifications
 
 source /usr/local/extras/Genomics/.bashrc
 source activate py36qiime2-2019.4
@@ -376,11 +376,10 @@ qiime metadata tabulate \
 Submit this job to the cluster, and when it is finished download `stats.qzv` and open it in QIIME 2 View.
 
 >### Question
->Which samples have the most and least number of sequences after all of the filtering steps, and how many sequecnes do they now have?
+>Which samples have the most and least number of sequences after all of the filtering steps, and how many sequences do they now have?
 
 
-FeatureTable and FeatureData summaries
---------------------------------------
+### FeatureTable and FeatureData summaries
 
 After the quality filtering step completes, you\'ll want to explore the
 resulting data. You can do this using the following two commands, which
@@ -394,6 +393,8 @@ against the NCBI nt database. The latter visualization will be very
 useful later in the tutorial, when you want to learn more about specific
 features that are important in the data set.
 
+The following commands are in the script file `feature-table.sh`. Edit if necessary, submit the job, and when complete you should have two new QIIME 2 View files: `table.qzv` and `rep-seqs.qzv`.
+
 ```Shell
 qiime feature-table summarize \
   --i-table table.qza \
@@ -403,6 +404,10 @@ qiime feature-table tabulate-seqs \
   --i-data rep-seqs.qza \
   --o-visualization rep-seqs.qzv
 ```
+
+>### Question
+>
+
 
 Generate a tree for phylogenetic diversity analyses
 ---------------------------------------------------
