@@ -125,7 +125,7 @@ wget -O "sample-metadata.tsv" "https://data.qiime2.org/2020.2/tutorials/moving-p
 
 #### Obtaining and importing data
 
-Download the sequence reads that we\'ll use in this analysis. In this
+Make a new directory for the sequence reads and download them using `wget`. In this
 tutorial we\'ll work with a small subset of the complete sequence data
 so that the commands will run quickly.
 
