@@ -187,7 +187,7 @@ https://www.sheffield.ac.uk/cics/research/hpc/sharc/batch
 
 The ```#$ -m bea``` and ```#$ -M``` options mean that it will send an email when the script starts, stops or aborts. You need to add your email address after the ```#$ -M``` option. Then save the file and exit.
 
-The last four lines of this script are our commands for the Qiime software to import the data. This is in effect one line of code. The `\` symbol at the end of the first three lines means that the newline is ignored and all four lines are read as one command. This allows us to break up long command lines to make them more readable.
+The last four lines of this script are our commands for the QIIME 2 software to import the data. This is in effect one line of code. The `\` symbol at the end of the first three lines means that the newline is ignored and all four lines are read as one command. This allows us to break up long command lines to make them more readable.
 
 When you have edited the line starting `#$ -M` to include your email address, save the file, exit nano, and submit the job to the cluster.
 
@@ -210,13 +210,13 @@ The first job is your interactive session, the second is the job you just submit
 
 When the job has finished running you should have three new files in your working directory:
 
-* `emp-single-end-sequences.qza` is the 
+* `emp-single-end-sequences.qza` is the QIIME 2 artifact that contains our input DNA sequences and barcodes
 * `import.exxxx` is the error output
 * `import.oxxxx` is the normal or log output
 
 
 
-Demultiplexing sequences {#moving pics demux}
+Demultiplexing sequences
 ------------------------
 
 To demultiplex sequences we need to know which barcode sequence is
