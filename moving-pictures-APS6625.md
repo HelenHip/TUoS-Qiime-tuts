@@ -154,7 +154,7 @@ samples (hence the inclusion of both `sequences.fastq.gz` and
 barcode read associated with each sequence in `sequences.fastq.gz`.) To
 learn about how to import sequence data in other formats, see the [importing data tutorial](https://docs.qiime2.org/2020.2/tutorials/importing/).
 
-##### Running QIIME 2 on ShARC
+### Running QIIME 2 on ShARC
 
 We will submit jobs to the cluster using `qsub` and scriptfiles. Copy the scriptfiles for this tutorial from the workshops folder
 
@@ -216,8 +216,7 @@ When the job has finished running you should have three new files in your workin
 
 Where `xxxx` is the unique `job-ID` number.
 
-Demultiplexing sequences
-------------------------
+### Demultiplexing sequences
 
 To demultiplex sequences we need to know which barcode sequence is
 associated with each sample. This information is contained in the
@@ -232,7 +231,21 @@ sequences. The second output (`demux-details.qza`) presents Golay error
 correction details, and will not be explored in this tutorial (you can
 visualize these data using `qiime metadata tabulate`).
 
+The command to run `demux emp-single` is in the script called `demux.sh`. Open this using `nano` and edit your email address to receive job notifications.
+
 ```Shell
+#!/bin/bash
+#$ -l h_rt=2:00:00
+#$ -l rmem=2G
+#$ -m bea
+#$ -N demux
+#$ -M name@sheffield.ac.uk
+
+# Insert your email address above to receive job notifications
+
+source /usr/local/extras/Genomics/.bashrc
+source activate py36qiime2-2019.4
+
 qiime demux emp-single \
   --i-seqs emp-single-end-sequences.qza \
   --m-barcodes-file sample-metadata.tsv \
@@ -241,16 +254,36 @@ qiime demux emp-single \
   --o-error-correction-details demux-details.qza
 ```
 
+When the job has finished running you will have four new output files - two QIIME 2 artifact files `demux.qza` and `demux-details.qza`, and the error and log output files.
+
 After demultiplexing, it\'s useful to generate a summary of the
 demultiplexing results. This allows you to determine how many sequences
 were obtained per sample, and also to get a summary of the distribution
 of sequence qualities at each position in your sequence data.
 
+Use `nano` and `qsub` as before to edit and then submit this command.
+
 ```Shell
+#!/bin/bash
+#$ -l h_rt=2:00:00
+#$ -l rmem=2G
+##$ -m bea
+#$ -N summarize
+##$ -M name@sheffield.ac.uk
+
+# Insert your email address above to receive job notifications
+
+source /usr/local/extras/Genomics/.bashrc
+source activate py36qiime2-2019.4
+
 qiime demux summarize \
   --i-data demux.qza \
   --o-visualization demux.qzv
 ```
+
+
+
+
 
 >### Note
 >All QIIME 2 visualizers (i.e., commands that take a `--o-visualization`
