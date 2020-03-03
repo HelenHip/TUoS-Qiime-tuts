@@ -182,6 +182,11 @@ qiime tools import \
   --output-path emp-single-end-sequences.qza
 ```
 
+The lines starting with ```#$``` set various options deterning how the job will run in the cluster. Check what these mean here:
+https://www.sheffield.ac.uk/cics/research/hpc/sharc/batch
+
+The ```#$ -m bea``` and ```#$ -M``` options mean that it will send an email when the script starts, stops or aborts. You need to add your email address after the ```#$ -M``` option. The save the file and exit.
+
 The last four lines of this script are our commands for the Qiime software to import the data. This is in effect one line of code. The `\` symbol at the end of the first three lines means that the newline is ignored and all four lines are read as one command. This allows us to break up long command lines to make them more readable.
 
 When you have edited the line starting `#$ -M` to include your email address, save the file, exit nano, and submit the job to the cluster.
@@ -189,17 +194,21 @@ When you have edited the line starting `#$ -M` to include your email address, sa
 ```Shell
 qsub import.sh
 ```
+Check the jobs you have running
+```bash
+qstat
+```
+You should see something like this
+```
 
+job-ID  prior   name       user         state submit/start at     queue                          slots ja-task-ID
+-----------------------------------------------------------------------------------------------------------------
+3528787 0.02478 QRLOGIN    bo1nn        r     02/16/2019 15:55:41 interactive.q@sharc-node003.sh     1
+3528789 0.00003 import     bo1nn        r     02/16/2019 15:58:35 all.q@sharc-node073.shef.ac.uk     1
+```
+The first job is your interactive session, the second is the job you just submitted. ```r``` is good and means it is running. Check the manual page for ```qstat``` to see what the other state codes mean. You should also receive an email to tell you that your job has started (and when it has ended).
 
->### Tip
->Links are included to view and download precomputed QIIME 2 artifacts
-and visualizations created by commands in the documentation. For
-example, the command above created a single
-`emp-single-end-sequences.qza` file, and a corresponding precomputed
-file is linked above. You can view precomputed QIIME 2 artifacts and
-visualizations without needing to install additional software (e.g.
-QIIME 2).
-
+When the job has finished running you should have three new files in your working directory: 
 
 Demultiplexing sequences {#moving pics demux}
 ------------------------
