@@ -208,7 +208,13 @@ job-ID  prior   name       user         state submit/start at     queue         
 ```
 The first job is your interactive session, the second is the job you just submitted. ```r``` is good and means it is running. Check the manual page for ```qstat``` to see what the other state codes mean. You should also receive an email to tell you that your job has started (and when it has ended).
 
-When the job has finished running you should have three new files in your working directory: 
+When the job has finished running you should have three new files in your working directory:
+
+* `emp-single-end-sequences.qza` is the 
+* `import.exxxx` is the error output
+* `import.oxxxx` is the normal or log output
+
+
 
 Demultiplexing sequences {#moving pics demux}
 ------------------------
