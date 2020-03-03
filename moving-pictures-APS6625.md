@@ -153,8 +153,7 @@ multiplexed, meaning that the sequences have not yet been assigned to
 samples (hence the inclusion of both `sequences.fastq.gz` and
 `barcodes.fastq.gz` files, where the `barcodes.fastq.gz` contains the
 barcode read associated with each sequence in `sequences.fastq.gz`.) To
-learn about how to import sequence data in other formats, see the
-`importing data tutorial <importing>`{.interpreted-text role="doc"}.
+learn about how to import sequence data in other formats, see the [importing data tutorial[(https://docs.qiime2.org/2020.2/tutorials/importing/).
 
 ```Shell
 qiime tools import \
