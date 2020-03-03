@@ -182,7 +182,7 @@ qiime tools import \
   --output-path emp-single-end-sequences.qza
 ```
 
-The lines starting with ```#$``` set various options deterning how the job will run in the cluster. Check what these mean here:
+The lines starting with ```#$``` set various options determining how the job will run in the cluster. Check what these mean here:
 https://www.sheffield.ac.uk/cics/research/hpc/sharc/batch
 
 The ```#$ -m bea``` and ```#$ -M``` options mean that it will send an email when the script starts, stops or aborts. You need to add your email address after the ```#$ -M``` option. Then save the file and exit.
@@ -281,9 +281,11 @@ qiime demux summarize \
   --o-visualization demux.qzv
 ```
 
-We now have a file called `demux.qzv`. All output files from QIIME 2 with the extension `.qzv` can be visualised using the QIIME view web page. Download `demux.qzv` to your computer
+We now have a file called `demux.qzv`. All output files from QIIME 2 with the extension `.qzv` can be visualised using the QIIME view web page. Download `demux.qzv` to your computer, open [QIIME 2 View](https://view.qiime2.org/) on your web browser, and drag & drop the `demux.qzv` file to the upload box.
 
-
+>### Question
+* What's the total number of samples?
+* What are the minimum and maximum number of sequences for a sample?
 
 >### Note
 >All QIIME 2 visualizers (i.e., commands that take a `--o-visualization`
