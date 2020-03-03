@@ -442,7 +442,7 @@ masked-aligned-rep-seqs.qza \
   --o-rooted-tree rooted-tree.qza
 ```
 These commands can be submitted via the script `tree.sh`. 
-It is not especially sueful to view the phylogenetic tree at this stage, but the output files generated will be used in computing the diversity statistics below.
+It is not especially useful to view the phylogenetic tree at this stage, but the output files generated will be used in computing the diversity statistics below.
 
 ### Alpha and beta diversity analysis
 
@@ -524,6 +524,15 @@ number of samples here that this felt like the best compromise between
 total sequences analyzed and number of samples retained.
 
 This command is in the `diversity.sh` file. Edit this file if necessary and submit the job to the cluster. The output files will be written to a new folder in your working directory called `core-metrics-results`.
+
+There are four output files that can be visualised:
+*core-metrics-results/unweighted_unifrac_emperor.qzv
+
+*core-metrics-results/jaccard_emperor.qzv
+
+*core-metrics-results/bray_curtis_emperor.qzv
+
+*core-metrics-results/weighted_unifrac_emperor.qzv
 
 >### Note
 >In many Illumina runs you\'ll observe a few samples that have very low
