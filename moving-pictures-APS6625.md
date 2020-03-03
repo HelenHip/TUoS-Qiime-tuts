@@ -78,11 +78,13 @@ Other graphical alternatives are [WinSCP](http://dsavas.staff.shef.ac.uk/softwar
 
 ***
 
+### Create a working directory and download data
 
-create a new directory for this tutorial and change to
+Move to your user folder in the ```/fastdata``` directory, create a new folder for this tutorial and navigate in to
 that directory.
 
 ```Shell
+cd /fastdata/boXXX
 mkdir qiime2-moving-pictures-tutorial
 cd qiime2-moving-pictures-tutorial
 ```
