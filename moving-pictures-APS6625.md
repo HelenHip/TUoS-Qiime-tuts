@@ -89,7 +89,7 @@ mkdir qiime2-moving-pictures-tutorial
 cd qiime2-moving-pictures-tutorial
 ```
 
-Sample metadata
+#### Sample metadata
 ---------------
 
 Before starting the analysis, explore the sample metadata to familiarize
