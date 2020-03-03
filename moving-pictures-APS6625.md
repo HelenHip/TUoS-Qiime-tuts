@@ -406,7 +406,8 @@ qiime feature-table tabulate-seqs \
 ```
 
 >### Question
->
+>How many representative sequences are there in this data set?
+>Follow the instructions in `rep-seqs.qzv` to perform a BLAST search of the sequence at the top of the table. What species is the best match for this sequence?
 
 
 Generate a tree for phylogenetic diversity analyses
