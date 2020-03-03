@@ -92,7 +92,6 @@ cd qiime2-moving-pictures-tutorial
 ```
 
 #### Sample metadata
----------------
 
 Before starting the analysis, explore the sample metadata to familiarize
 yourself with the samples used in this study. The [sample
@@ -119,9 +118,12 @@ some invalid data to try out with Keemei.
 >To learn more about metadata, including how to format your metadata for
 use with QIIME 2, have a read of the [metadata tutorial](https://docs.qiime2.org/2020.2/tutorials/metadata/)
 
+We'll also need the sample metadata file in our working directory on ShARC. You can either upload it using the graphical sftp panel on the left of MobaXTerm, or download it directly onto the hpc using the command:
+```Shell
+wget -O "sample-metadata.tsv" "https://data.qiime2.org/2020.2/tutorials/moving-pictures/sample_metadata.tsv"
+```
 
-####Obtaining and importing data
-----------------------------
+#### Obtaining and importing data
 
 Download the sequence reads that we\'ll use in this analysis. In this
 tutorial we\'ll work with a small subset of the complete sequence data
