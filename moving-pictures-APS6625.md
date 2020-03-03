@@ -214,7 +214,7 @@ When the job has finished running you should have three new files in your workin
 * `import.exxxx` is the error output
 * `import.oxxxx` is the normal or log output
 
-
+Where `xxxx` is the unique `job-ID` number.
 
 Demultiplexing sequences
 ------------------------
