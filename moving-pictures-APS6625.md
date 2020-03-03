@@ -184,6 +184,12 @@ qiime tools import \
 
 The last four lines of this script are our commands for the Qiime software to import the data. This is in effect one line of code. The `\` symbol at the end of the first three lines means that the newline is ignored and all four lines are read as one command. This allows us to break up long command lines to make them more readable.
 
+When you have edited the line starting `#$ -M` to include your email address, save the file, exit nano, and submit the job to the cluster.
+
+```
+Shell
+qsub import.sh
+```
 
 
 >### Tip
