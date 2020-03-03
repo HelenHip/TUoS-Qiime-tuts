@@ -186,8 +186,7 @@ The last four lines of this script are our commands for the Qiime software to im
 
 When you have edited the line starting `#$ -M` to include your email address, save the file, exit nano, and submit the job to the cluster.
 
-```
-Shell
+```Shell
 qsub import.sh
 ```
 
