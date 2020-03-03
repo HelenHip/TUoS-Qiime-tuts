@@ -1,5 +1,7 @@
-\"Moving Pictures\" tutorial
+\"Moving Pictures\" tutorial for APS6625
 ============================
+
+Helen Hipperson, Tim Daniell, Joost Stassen
 
 ![TUoS Logo](Images/ShefLogo.jpg)
 
