@@ -6,7 +6,7 @@
 ![TUoS Logo](Images/ShefLogo.jpg)
 
 
->This tutorial has been adapted from that available in the QIIME 2 docs to utilise the ShARC hpc installation of the software at the University of Sheffield
+>This tutorial has been adapted from the one available in the QIIME 2 docs to utilise the ShARC hpc installation of the software at the University of Sheffield
 
 
 >### Note
@@ -21,6 +21,8 @@ al. (2011)](https://www.ncbi.nlm.nih.gov/pubmed/21624126). The data used
 in this tutorial were sequenced on an Illumina HiSeq using the [Earth
 Microbiome Project](http://earthmicrobiome.org) hypervariable region 4
 (V4) 16S rRNA sequencing protocol.
+
+### Logging in and setting up your account
 
 Before beginning this tutorial, log in to your account on ShARC using MobaXTerm. Start by opening the program, if you have used it before to connect to sharc you may find "sharc.shef.ac.uk" under "User sessions", in which case you can just double click on this to launch an ssh session on sharc. If not, click on "Session">"SSH" and enter
 ```
@@ -64,12 +66,12 @@ Another possibility is to email the files, for example:
 echo "Text body" | mail -s "Subject: gemma - hyperparameter plot" -a /data/myuser/gwas_gemma/output/hyperparameters.pdf your@email
 ```
 
-In Linux and Mac, you can use rsync on the terminal. For example, to transfer one of the pdf files or all the results that are generated in this practical, the command would be: 
+In Linux and Mac, you can use rsync on the terminal from your computer. For example, to transfer one of the pdf files or all the results that are generated in this practical, the command would be: 
 ```bash
 # transfer pdf file
-rsync myuser@iceberg.sheffield.ac.uk:/data/myuser/gwas_gemma/output/hyperparameters.pdf ./
+rsync myuser@sharc.sheffield.ac.uk:/data/myuser/gwas_gemma/output/hyperparameters.pdf ./
 # transfer all results
-rsync -av myuser@iceberg.sheffield.ac.uk:/data/myuser/gwas_gemma/output ./
+rsync -av myuser@sharc.sheffield.ac.uk:/data/myuser/gwas_gemma/output ./
 ```
 
 Other graphical alternatives are [WinSCP](http://dsavas.staff.shef.ac.uk/software/xconnect/winscp.html), [Filezilla](https://filezilla-project.org/) or [Cyberduck](http://www.macupdate.com/app/mac/8392/cyberduck). You can find more detailed information [here](https://www.sheffield.ac.uk/wrgrid/using/access).
