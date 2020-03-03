@@ -284,8 +284,8 @@ qiime demux summarize \
 We now have a file called `demux.qzv`. All output files from QIIME 2 with the extension `.qzv` can be visualised using the QIIME view web page. Download `demux.qzv` to your computer, open [QIIME 2 View](https://view.qiime2.org/) on your web browser, and drag & drop the `demux.qzv` file to the upload box.
 
 >### Question
-* What's the total number of samples?
-* Which samples have the most and least sequences, and how many sequences do they have
+* What is the total number of samples in the file?
+* Which samples have the most and least sequences, and how many sequences do they have?
 
 ### Sequence quality control and feature table construction
 
@@ -328,17 +328,31 @@ In the `demux.qzv` quality plots, we see that the quality of the initial
 bases seems to be high, so we won\'t trim any bases from the beginning
 of the sequences. The quality seems to drop off around position 120, so
 we\'ll truncate our sequences at 120 bases. This next command may take
-up to 10 minutes to run, and is the slowest step in this tutorial.
+up to 10 minutes to run, and is the slowest step in this tutorial. Edit and save the script as above before you submit this job to the cluster.
 
 ```Shell
+#!/bin/bash
+#$ -l h_rt=2:00:00
+#$ -l rmem=2G
+#$ -m bea
+#$ -N dada2
+#$ -M name@sheffield.ac.uk
+
+# Insert your email address above to receive job notifications
+
+source /usr/local/extras/Genomics/.bashrc
+source activate py36qiime2-2019.4
+
 qiime dada2 denoise-single \
   --i-demultiplexed-seqs demux.qza \
   --p-trim-left 0 \
   --p-trunc-len 120 \
-  --o-representative-sequences rep-seqs-dada2.qza \
-  --o-table table-dada2.qza \
-  --o-denoising-stats stats-dada2.qza
+  --o-representative-sequences rep-seqs.qza \
+  --o-table table.qza \
+  --o-denoising-stats stats.qza
 ```
+
+
 
 ```Shell
 qiime metadata tabulate \
