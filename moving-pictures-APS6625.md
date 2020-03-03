@@ -10,8 +10,7 @@
 
 
 >### Note
->This guide uses QIIME 2-specific terminology, please see the
-`glossary <../glossary>`{.interpreted-text role="doc"} for more details.
+>This guide uses QIIME 2-specific terminology, please see the [glossary](https://docs.qiime2.org/2020.2/glossary/) for more details.
 
 
 In this tutorial you\'ll use QIIME 2 to perform an analysis of human
