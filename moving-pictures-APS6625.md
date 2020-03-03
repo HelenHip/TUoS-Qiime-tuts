@@ -132,10 +132,12 @@ so that the commands will run quickly.
 ```Shell
 mkdir emp-single-end-sequences
 ```
+```Shell
+wget -O "emp-single-end-sequences/barcodes.fastq.gz" "https://data.qiime2.org/2020.2/tutorials/moving-pictures/emp-single-end-sequences/barcodes.fastq.gz"```
+```Shell
+wget -O "emp-single-end-sequences/sequences.fastq.gz" "https://data.qiime2.org/2020.2/tutorials/moving-pictures/emp-single-end-sequences/sequences.fastq.gz"
+```
 
->[https://data.qiime2.org/2020.2/tutorials/moving-pictures/emp-single-end-sequences/barcodes.fastq.gz](https://data.qiime2.org/2020.2/tutorials/moving-pictures/emp-single-end-sequences/barcodes.fastq.gz)
-
->[https://data.qiime2.org/2020.2/tutorials/moving-pictures/emp-single-end-sequences/sequences.fastq.gz](https://data.qiime2.org/2020.2/tutorials/moving-pictures/emp-single-end-sequences/sequences.fastq.gz)
 
 All data that is used as input to QIIME 2 is in form of QIIME 2
 artifacts, which contain information about the type of data and the
