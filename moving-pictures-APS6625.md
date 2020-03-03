@@ -410,8 +410,7 @@ qiime feature-table tabulate-seqs \
 >Follow the instructions in `rep-seqs.qzv` to perform a BLAST search of the sequence at the top of the table. What species is the best match for this sequence?
 
 
-Generate a tree for phylogenetic diversity analyses
----------------------------------------------------
+### Generate a tree for phylogenetic diversity analyses
 
 QIIME supports several phylogenetic diversity metrics, including
 Faith\'s Phylogenetic Diversity and weighted and unweighted UniFrac. In
@@ -442,9 +441,10 @@ masked-aligned-rep-seqs.qza \
   --o-tree unrooted-tree.qza \
   --o-rooted-tree rooted-tree.qza
 ```
+These commands can be submitted via the script `tree.sh`. 
+It is not especially sueful to view the phylogenetic tree at this stage, but the output files generated will be used in computing the diversity statistics below.
 
-Alpha and beta diversity analysis {#moving pics diversity}
----------------------------------
+### Alpha and beta diversity analysis
 
 QIIME 2\'s diversity analyses are available through the `q2-diversity`
 plugin, which supports computing alpha and beta diversity metrics,
@@ -523,13 +523,7 @@ metadata category is not ideal. However, we are dropping a small enough
 number of samples here that this felt like the best compromise between
 total sequences analyzed and number of samples retained.
 
->### Note
->The sampling depth of 1103 was chosen based on the DADA2 feature table
-summary. If you are using a Deblur feature table rather than a DADA2
-feature table, you might want to choose a different even sampling depth.
-Apply the logic from the previous paragraph to help you choose an even
-sampling depth.
-
+This command is in the `diversity.sh` file. Edit this file if necessary and submit the job to the cluster. The output files will be written to a new folder in your working directory called `core-metrics-results`.
 
 >### Note
 >In many Illumina runs you\'ll observe a few samples that have very low
