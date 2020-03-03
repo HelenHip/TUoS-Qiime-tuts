@@ -351,31 +351,33 @@ qiime dada2 denoise-single \
   --o-table table.qza \
   --o-denoising-stats stats.qza
 ```
+We can convert the table of summary stats to a `.qzv` file to visualise in [QIIME 2 View](https://view.qiime2.org/).
 
-
-
-```Shell
-qiime metadata tabulate \
-  --m-input-file stats-dada2.qza \
-  --o-visualization stats-dada2.qzv
-```
-
-
-
->### Note
->The two commands used in this section generate QIIME 2 artifacts
-containing summary statistics. To view those summary statistics, you can
-visualize them using `qiime metadata tabulate` and
-`qiime deblur visualize-stats`, respectively:
-
+This command is in the script file `tabulate.sh`. You can edit this with your email address again, or if you do not want to receive the job notification emails then simply 'comment out' those lines by adding an additional `#` symbol to the start of them, as shown below.
 
 ```Shell
+#!/bin/bash
+#$ -l h_rt=2:00:00
+#$ -l rmem=2G
+##$ -m bea
+#$ -N tabulate
+##$ -M name@sheffield.ac.uk
+
+# Insert your email address above to receive job notifications
+
+source /usr/local/extras/Genomics/.bashrc
+source activate py36qiime2-2019.4
+
 qiime metadata tabulate \
-  --m-input-file demux-filter-stats.qza \
-  --o-visualization demux-filter-stats.qzv qiime deblur visualize-stats \
-  --i-deblur-stats deblur-stats.qza \
-  --o-visualization deblur-stats.qzv
+  --m-input-file stats.qza \
+  --o-visualization stats.qzv
 ```
+
+Submit this job to the cluster, and when it is finished download `stats.qzv` and open it in QIIME 2 View.
+
+>### Question
+>Which samples have the most and least number of sequences after all of the filtering steps, and how many sequecnes do they now have?
+
 
 FeatureTable and FeatureData summaries
 --------------------------------------
