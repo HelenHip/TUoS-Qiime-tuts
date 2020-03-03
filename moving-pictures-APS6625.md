@@ -159,16 +159,32 @@ learn about how to import sequence data in other formats, see the [importing dat
 We will submit jobs to the cluster using `qsub` and scriptfiles. Copy the scriptfiles for this tutorial from the workshops folder
 
 ```Shell
-cp /usr/local/extras/Genomics/wokshops/qiime .
+cp /usr/local/extras/Genomics/workshops/qiime .
 ```
-
+The first job we will run is in the script called ```import.sh```. Open this script using `nano` and edit to include your email address for receiving notifications about the job.
 
 ```Shell
+#!/bin/bash
+#$ -l h_rt=2:00:00
+#$ -l rmem=2G
+#$ -m bea
+#$ -N import
+#$ -M name@sheffield.ac.uk
+
+# Insert your email address above to receive job notifications
+
+source /usr/local/extras/Genomics/.bashrc
+source activate py36qiime2-2019.4
+
 qiime tools import \
   --type EMPSingleEndSequences \
   --input-path emp-single-end-sequences \
   --output-path emp-single-end-sequences.qza
 ```
+
+The last four lines of this script are our commands for the Qiime software to import the data. This is in effect one line of code. The `\` symbol at the end of the first three lines means that the newline is ignored and all four lines are read as one command. This allows us to break up long command lines to make them more readable.
+
+
 
 >### Tip
 >Links are included to view and download precomputed QIIME 2 artifacts
