@@ -285,28 +285,9 @@ We now have a file called `demux.qzv`. All output files from QIIME 2 with the ex
 
 >### Question
 * What's the total number of samples?
-* What are the minimum and maximum number of sequences for a sample?
+* Which samples have the most and least sequences, and how many sequences do they have
 
->### Note
->All QIIME 2 visualizers (i.e., commands that take a `--o-visualization`
-parameter) will generate a `.qzv` file. You can view these files with
-`qiime tools view`. We provide the command to view this first
-visualization, but for the remainder of this tutorial we\'ll tell you to
-*view the resulting visualization* after running a visualizer, which
-means that you should run `qiime tools view` on the .qzv file that was
-generated.
-```Shell
-qiime tools view demux.qzv
-```
-Alternatively, you can view QIIME 2 artifacts and visualizations at
-[view.qiime2.org](https://view.qiime2.org) by uploading files or
-providing URLs. There are also precomputed results that can be viewed or
-downloaded after each step in the tutorial. These can be used if you\'re
-reading the tutorial, but not running the commands yourself.
-
-
-Sequence quality control and feature table construction
--------------------------------------------------------
+### Sequence quality control and feature table construction
 
 QIIME 2 plugins are available for several quality control methods,
 including [DADA2](https://www.ncbi.nlm.nih.gov/pubmed/27214047),
@@ -314,31 +295,14 @@ including [DADA2](https://www.ncbi.nlm.nih.gov/pubmed/27214047),
 quality-score-based
 filtering](http://www.nature.com/nmeth/journal/v10/n1/abs/nmeth.2276.html).
 In this tutorial we present this step using
-[DADA2](https://www.ncbi.nlm.nih.gov/pubmed/27214047) and
-[Deblur](http://msystems.asm.org/content/2/2/e00191-16). These steps are
-interchangeable, so you can use whichever of these you prefer. The
-result of both of these methods will be a `FeatureTable[Frequency]`
+[DADA2](https://www.ncbi.nlm.nih.gov/pubmed/27214047). The
+result of DADA2 will be a `FeatureTable[Frequency]`
 QIIME 2 artifact, which contains counts (frequencies) of each unique
 sequence in each sample in the dataset, and a `FeatureData[Sequence]`
 QIIME 2 artifact, which maps feature identifiers in the `FeatureTable`
 to the sequences they represent.
 
->### Note
->As you work through one or both of the options in this section, you\'ll
-create artifacts with filenames that are specific to the method that
-you\'re running (e.g., the feature table that you generate with
-`dada2 denoise-single` will be called `table-dada2.qza`). After creating
-these artifacts you\'ll rename the artifacts from one of the two options
-to more generic filenames (e.g., `table.qza`). This process of creating
-a specific name for an artifact and then renaming it is only done to
-allow you to choose which of the two options you\'d like to use for this
-step, and then complete the tutorial without paying attention to that
-choice again. It\'s important to note that in this step, or any step in
-QIIME 2, the filenames that you\'re giving to artifacts or
-visualizations are not important.
-
-
-### Option 1: DADA2
+#### DADA2
 
 [DADA2](https://www.ncbi.nlm.nih.gov/pubmed/27214047) is a pipeline for
 detecting and correcting (where possible) Illumina amplicon sequence
