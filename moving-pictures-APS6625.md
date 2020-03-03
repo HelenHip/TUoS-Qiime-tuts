@@ -29,7 +29,7 @@ Before beginning this tutorial, log in to your account on ShARC using MobaXTerm.
 ```
 sharc.sheffield.ac.uk
 ```
-in the "Remote host" box and specify your username (port should always be 22).
+in the "Remote host" box, and specify your username (port should always be 22).
 
 Request an interactive session:
 ```bash
@@ -284,8 +284,8 @@ qiime demux summarize \
 We now have a file called `demux.qzv`. All output files from QIIME 2 with the extension `.qzv` can be visualised using the QIIME view web page. Download `demux.qzv` to your computer, open [QIIME 2 View](https://view.qiime2.org/) on your web browser, and drag & drop the `demux.qzv` file to the upload box.
 
 >### Question
-* What is the total number of samples in the file?
-* Which samples have the most and least sequences, and how many sequences do they have?
+>What is the total number of samples in the file?
+>Which samples have the most and least sequences, and how many sequences do they have?
 
 ### Sequence quality control and feature table construction
 
