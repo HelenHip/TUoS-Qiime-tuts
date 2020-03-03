@@ -1,14 +1,12 @@
 \"Moving Pictures\" tutorial for APS6625
 ============================
 
-Helen Hipperson, Tim Daniell, Joost Stassen
+**Helen Hipperson, Tim Daniell, Joost Stassen**
 
 ![TUoS Logo](Images/ShefLogo.jpg)
 
->### Note
->This guide assumes you have installed QIIME 2 using one of the
-procedures in the
-`install documents <../install/index>`{.interpreted-text role="doc"}.
+
+>This tutorial has been adapted from that available in the QIIME 2 docs to utilise the ShARC hpc installation of the software at the University of Sheffield
 
 
 >### Note
