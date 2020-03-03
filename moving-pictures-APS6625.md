@@ -97,9 +97,9 @@ yourself with the samples used in this study. The [sample
 metadata](https://data.qiime2.org/2020.2/tutorials/moving-pictures/sample_metadata)
 is available as a Google Sheet. You can download this file as
 tab-separated text by selecting `File` \> `Download as` \>
-`Tab-separated values`. Alternatively, the following command will
+`Tab-separated values`. Alternatively, clicking on the link below will
 download the sample metadata as tab-separated text and save it in the
-file `sample-metadata.tsv`. This `sample-metadata.tsv` file is used
+file `sample-metadata.tsv` on your computer. This `sample-metadata.tsv` file is used
 throughout the rest of the tutorial.
 
 >[https://data.qiime2.org/2020.2/tutorials/moving-pictures/sample_metadata.tsv](https://data.qiime2.org/2020.2/tutorials/moving-pictures/sample_metadata.tsv)
@@ -115,8 +115,7 @@ some invalid data to try out with Keemei.
 
 >### Tip
 >To learn more about metadata, including how to format your metadata for
-use with QIIME 2, check out
-`the metadata tutorial <metadata>`{.interpreted-text role="doc"}.
+use with QIIME 2, have a read of the [metadata tutorial](https://docs.qiime2.org/2020.2/tutorials/metadata/)
 
 
 Obtaining and importing data
