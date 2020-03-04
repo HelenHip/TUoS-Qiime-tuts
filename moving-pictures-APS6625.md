@@ -749,8 +749,7 @@ What do you think is happening here? (Hint: be sure to look at both the
 top and bottom plots.)
 
 
-Taxonomic analysis {#moving pics taxonomy}
-------------------
+### Taxonomic analysis
 
 In the next sections we\'ll begin to explore the taxonomic composition
 of the samples, and again relate that to sample metadata. The first step
@@ -764,21 +763,11 @@ bound by the 515F/806R primer pair). We\'ll apply this classifier to our
 sequences, and we can generate a visualization of the resulting mapping
 from sequence to taxonomy.
 
->### Note
->Taxonomic classifiers perform best when they are trained based on your
-specific sample preparation and sequencing parameters, including the
-primers that were used for amplification and the length of your sequence
-reads. Therefore in general you should follow the instructions in
-`Training feature classifiers with q2-feature-classifier <../tutorials/feature-classifier>`{.interpreted-text
-role="doc"} to train your own taxonomic classifiers. We provide some
-common classifiers on our
-`data resources page <../data-resources>`{.interpreted-text role="doc"},
-including Silva-based 16S classifiers, though in the future we may stop
-providing these in favor of having users train their own classifiers
-which will be most relevant to their sequence data.
+Download the classifier using `wget`
 
-
->[https://data.qiime2.org/2020.2/common/gg-13-8-99-515-806-nb-classifier.qza](https://data.qiime2.org/2020.2/common/gg-13-8-99-515-806-nb-classifier.qza)
+```Shell
+wget https://data.qiime2.org/2020.2/common/gg-13-8-99-515-806-nb-classifier.qza
+```
 
 ```Shell
 qiime feature-classifier classify-sklearn \
