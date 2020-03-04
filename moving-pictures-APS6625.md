@@ -526,13 +526,10 @@ total sequences analyzed and number of samples retained.
 This command is in the `diversity.sh` file. Edit this file if necessary and submit the job to the cluster. The output files will be written to a new folder in your working directory called `core-metrics-results`.
 
 There are four output files that can be visualised:
-*core-metrics-results/unweighted_unifrac_emperor.qzv
-
-*core-metrics-results/jaccard_emperor.qzv
-
-*core-metrics-results/bray_curtis_emperor.qzv
-
-*core-metrics-results/weighted_unifrac_emperor.qzv
+* core-metrics-results/unweighted_unifrac_emperor.qzv
+* core-metrics-results/jaccard_emperor.qzv
+* core-metrics-results/bray_curtis_emperor.qzv
+* core-metrics-results/weighted_unifrac_emperor.qzv
 
 >### Note
 >In many Illumina runs you\'ll observe a few samples that have very low
