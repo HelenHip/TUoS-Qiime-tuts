@@ -769,6 +769,8 @@ Download the classifier using `wget`
 wget https://data.qiime2.org/2020.2/common/gg-13-8-99-515-806-nb-classifier.qza
 ```
 
+Submit the following commands via the script `classifier.sh`.
+
 ```Shell
 qiime feature-classifier classify-sklearn \
   --i-classifier gg-13-8-99-515-806-nb-classifier.qza \
