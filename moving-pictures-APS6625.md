@@ -766,7 +766,7 @@ from sequence to taxonomy.
 Download the classifier using `wget`
 
 ```Shell
-wget https://data.qiime2.org/2020.2/common/gg-13-8-99-515-806-nb-classifier.qza
+wget https://data.qiime2.org/2019.1/common/gg-13-8-99-515-806-nb-classifier.qza
 ```
 
 Submit the following commands via the script `classifier.sh`.
