@@ -5,6 +5,24 @@
 
 ![TUoS Logo](Images/ShefLogo.jpg)
 
+- [\"Moving Pictures\" tutorial for APS6625](#--moving-pictures---tutorial-for-aps6625)
+    + [Logging in and setting up your account](#logging-in-and-setting-up-your-account)
+ 
+    + [Create a working directory and download data](#create-a-working-directory-and-download-data)
+    + [Obtaining and importing data](#obtaining-and-importing-data)
+    + [Running QIIME 2 on ShARC](#running-qiime-2-on-sharc)
+    + [Demultiplexing sequences](#demultiplexing-sequences)
+    + [Sequence quality control and feature table construction](#sequence-quality-control-and-feature-table-construction)
+    + [DADA2](#dada2)
+    + [FeatureTable and FeatureData summaries](#featuretable-and-featuredata-summaries)
+    + [Generate a tree for phylogenetic diversity analyses](#generate-a-tree-for-phylogenetic-diversity-analyses)
+    + [Alpha and beta diversity analysis](#alpha-and-beta-diversity-analysis)
+    + [Alpha rarefaction plotting](#alpha-rarefaction-plotting)
+    + [Taxonomic analysis](#taxonomic-analysis)
+    + [Differential abundance testing with ANCOM](#differential-abundance-testing-with-ancom)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
 
 >This tutorial has been adapted from the one available in the QIIME 2 docs to utilise the ShARC hpc installation of the software at the University of Sheffield
 
@@ -793,7 +811,7 @@ they\'re dissimilar, at what *taxonomic level* do they begin to differ
 
 
 Next, we can view the taxonomic composition of our samples with
-interactive bar plots. Generate those plots with the following command
+interactive bar plots. Generate those plots with the following command (via `barplot.sh`)
 and then open the visualization.
 
 ```Shell
@@ -813,8 +831,7 @@ change across the two subjects between `days-since-experiment-start` `0`
 and the later timepoints?
 
 
-Differential abundance testing with ANCOM {#ancom}
------------------------------------------
+### Differential abundance testing with ANCOM
 
 ANCOM can be applied to identify features that are differentially
 abundant (i.e. present in different abundances) across sample groups. As
