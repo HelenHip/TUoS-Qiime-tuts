@@ -346,7 +346,7 @@ In the `demux.qzv` quality plots, we see that the quality of the initial
 bases seems to be high, so we won\'t trim any bases from the beginning
 of the sequences. The quality seems to drop off around position 120, so
 we\'ll truncate our sequences at 120 bases. This next command may take
-up to 10 minutes to run, and is the slowest step in this tutorial. Edit and save the script as above before you submit this job to the cluster.
+up to 10 minutes to run, and is the slowest step in this tutorial. Edit and save the script (`dada2.sh`) as above before you submit this job to the cluster.
 
 ```Shell
 #!/bin/bash
