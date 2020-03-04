@@ -670,8 +670,7 @@ metadata.)
 Bray-Curtis PCoA plots?
 
 
-Alpha rarefaction plotting
---------------------------
+### Alpha rarefaction plotting
 
 In this section we\'ll explore alpha diversity as a function of sampling
 depth using the `qiime diversity alpha-rarefaction` visualizer. This
@@ -694,6 +693,8 @@ qiime diversity alpha-rarefaction \
   --m-metadata-file sample-metadata.tsv \
   --o-visualization alpha-rarefaction.qzv
 ```
+
+Submit these commands via the `rare.sh` script and visualise the resulting `.qzv` files.
 
 The visualization will have two plots. The top plot is an alpha
 rarefaction plot, and is primarily used to determine if the richness of
