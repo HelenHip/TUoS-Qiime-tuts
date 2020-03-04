@@ -843,11 +843,7 @@ this method.
 >### Note
 >Differential abundance testing in microbiome analysis is an active area
 of research. There are two QIIME 2 plugins that can be used for this:
-`q2-gneiss` and `q2-composition`. This section uses `q2-composition`,
-but there is
-`another tutorial which uses gneiss <gneiss>`{.interpreted-text
-role="doc"} on a different dataset if you are interested in learning
-more.
+`q2-gneiss` and `q2-composition`. This section uses `q2-composition`.
 
 
 ANCOM is implemented in the `q2-composition` plugin. ANCOM assumes that
@@ -862,8 +858,8 @@ genera are differentially abundant across the gut samples of our two
 subjects.
 
 We\'ll start by creating a feature table that contains only the gut
-samples. (To learn more about filtering, see the
-`Filtering Data <filtering>`{.interpreted-text role="doc"} tutorial.)
+samples. (To learn more about filtering, see the [Filtering Data Tutorial](https://docs.qiime2.org/2020.2/tutorials/filtering/).
+
 
 ```Shell
 qiime feature-table filter-samples \
@@ -896,6 +892,7 @@ qiime composition ancom \
   --m-metadata-column subject \
   --o-visualization ancom-subject.qzv
 ```
+These three commands can be submitted via the `differential-abundance.sh` script.
 
 >### Question
 >Which sequence variants differ in abundance across Subject? In which
@@ -928,6 +925,7 @@ qiime composition ancom \
   --m-metadata-column subject \
   --o-visualization l6-ancom-subject.qzv
 ```
+Run these commands via the `differential-abundance-2.sh` script
 
 >### Question
 Which genera differ in abundance across subject? In which subject is
