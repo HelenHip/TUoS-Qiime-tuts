@@ -177,7 +177,7 @@ learn about how to import sequence data in other formats, see the [importing dat
 We will submit jobs to the cluster using `qsub` and scriptfiles. Copy the scriptfiles for this tutorial from the workshops folder
 
 ```Shell
-cp /usr/local/extras/Genomics/workshops/qiime .
+cp -r /usr/local/extras/Genomics/workshops/qiime .
 ```
 The first job we will run is in the script called ```import.sh```. Open this script using `nano` and edit to include your email address for receiving notifications about the job.
 
