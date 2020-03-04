@@ -279,7 +279,7 @@ demultiplexing results. This allows you to determine how many sequences
 were obtained per sample, and also to get a summary of the distribution
 of sequence qualities at each position in your sequence data.
 
-Use `nano` and `qsub` as before to edit and then submit this command.
+This command is in a script calles `summarize.sh`. Use `nano` and `qsub` as before to edit and then submit this command.
 
 ```Shell
 #!/bin/bash
