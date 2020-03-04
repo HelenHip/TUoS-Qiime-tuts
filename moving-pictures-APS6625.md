@@ -560,6 +560,8 @@ qiime diversity alpha-group-significance \
   --o-visualization core-metrics-results/evenness-group-significance.qzv
 ```
 
+These commands can be run via the `association-test.sh` script, and will generate two further `.qzv` files in the `core-metrics-results` folder.
+
 >### Question
 >Which categorical sample metadata columns are most strongly associated
 with the differences in microbial community **richness**? Are these
@@ -612,6 +614,8 @@ qiime diversity beta-group-significance \
   --p-pairwise
 ```
 
+Submit these commands via the `beta-group-sig.sh` script and visualise the resulting `.qzv` files.
+
 >### Question
 >Are the associations between subjects and differences in microbial
 composition statistically significant? How about body sites? What
@@ -652,6 +656,8 @@ qiime emperor plot \
   --p-custom-axes days-since-experiment-start \
   --o-visualization core-metrics-results/bray-curtis-emperor-days-since-experiment-start.qzv
 ```
+
+Submit these commands via the `emperor.sh` script and visualise the resulting `.qzv` files.
 
 >### Question
 >Do the Emperor plots support the other beta diversity analyses we\'ve
