@@ -201,7 +201,7 @@ qiime tools import \
 ```
 
 The lines starting with ```#$``` set various options determining how the job will run in the cluster. Check what these mean here:
-https://www.sheffield.ac.uk/cics/research/hpc/sharc/batch
+https://docs.hpc.shef.ac.uk/en/latest/hpc/scheduler/submit.html#submit-queue
 
 The ```#$ -m bea``` and ```#$ -M``` options mean that it will send an email when the script starts, stops or aborts. You need to add your email address after the ```#$ -M``` option. Then save the file and exit.
 
